@@ -1,0 +1,23 @@
+Complexidade considerando apenas o calcMin()
+
+T = Troco
+M = Moedas
+
+Linha   Tempo
+45	1
+48	1 + (M+1) + M
+50	(1 + (T+1) + T)M
+52	M*T
+55	M*T
+59	M*T
+61/64   M*T (aqui são os internos do if e else)
+70	1
+
+
+1+1+(M+1)+M+(M+(MT+M)+MT)+4MT+1
+6MT + 4M + 4
+
+Porém, no nosso código a quantia de moedas é constante 
+E também o mais externo é o loop de T
+
+Então temos uma complexidade O(T) sendo T o troco.
