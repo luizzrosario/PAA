@@ -1,0 +1,20 @@
+Complexidade para o MultMatrizIte()
+
+Linha   Tempo
+35	1
+39	1 + (N+1) + N
+40	N
+45	1 + (N+1) + N
+47	(1 + (N+1) + N)N
+49	N²
+52	N²
+55	(1 + (N+1) + N)N²
+60	N³
+63	N³
+64	N³
+70	1
+
+1+1+(N+1)+2N+1+(N+1)+N+(N+(N²+N)+N²)+2N²+(N²+(N³+N²)+N³)+3N³+1
+5N³+6N²+7N+6
+Temos uma complexidade assintótica de O(N²)
+Já que há N³, e O(N²) engloba N³
