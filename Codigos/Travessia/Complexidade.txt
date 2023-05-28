@@ -1,0 +1,34 @@
+Complexidade do Travessia()
+
+T(0, 0) = 3
+Linha   Tempo
+50      2
+51      1
+
+T(0, c) = 5 + T(0, c-1) 
+Linha   Tempo
+50      2
+55      1
+56      1 + T(0, c-1) + 1
+
+T(l, 0) = 6 + T(l-1, 0)
+Linha   Tempo
+50      2
+55      1
+60      1 
+61      1 + T(l-1, 0) + 1
+
+T(l, c) = 5 + min(T(l-1, c), T(l, c-1)) 
+Linha   Tempo
+50      2
+55      1
+60      1
+66      1 + min(T(l-1, c) + 1, T(l, c-1) + 1)
+
+Sendo T(l, c) o pior caso, teriamos uma classe assintótica de 2^n
+Já que, o nosso subproblema se divide em 2, e então ambos em mais 2, tornando-se 4 problemas
+De forma exponencial
+E então como nossa entrada é uma matriz quadrática de tamanho n
+Podemos afirmar que o algoritmo é O(2^n)
+
+
