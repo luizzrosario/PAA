@@ -9,7 +9,7 @@ class Travessia {
 
     public static void main(String[] args) {
         try {
-            File file = new File("Codigos/Travessia/deniveis.txt");
+            File file = new File("Travessia/deniveis.txt");
             Scanner scanner = new Scanner(file);
 
             // Pegando n

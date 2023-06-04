@@ -8,7 +8,7 @@ public class MultMatrizIte {
 
     public static void main(String[] args) {
         try {
-            File file = new File("Codigos/MultMatriz/Dimensoes.txt");
+            File file = new File("MultMatriz/Dimensoes.txt");
             Scanner scanner = new Scanner(file);
 
             // Lê a quantia de matrizes
