@@ -130,5 +130,4 @@ public class Prim {
 		// Retorna o index do menor
 		return min_index;
 	}
-
 }
