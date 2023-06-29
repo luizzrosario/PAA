@@ -15,7 +15,7 @@ public class Prim {
 		long startTime = System.nanoTime();
 
 		// Ponteiro para o arquivo
-		File file = new File("Projeto/Grafos/Grafo"+ n +".txt");
+		File file = new File("Projeto/Grafos/Grafo" + n + ".txt");
 		Scanner scanner = new Scanner(file);
 
 		// Lê a quantia de vértices e atribue a n
@@ -25,7 +25,7 @@ public class Prim {
 		int[][] Adj = new int[n][n];
 
 		// Lê a matriz de adjacência do grafo
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < n; i++) { // O(n²)
 			for (int j = 0; j < n; j++) {
 				Adj[i][j] = scanner.nextInt();
 			}
@@ -61,7 +61,7 @@ public class Prim {
 
 		// Inicia todos os pesos em infinito
 		// E poe como falso os que não visitou ainda
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < n; i++) { // O(2n)
 			peso[i] = Integer.MAX_VALUE;
 			arvoreAGM[i] = false;
 		}
@@ -73,7 +73,7 @@ public class Prim {
 		// O primeiro sempre vai ser a raiz. Ou seja, não tem pai (-1 está fora)
 		pai[0] = -1;
 
-		for (int count = 0; count < n - 1; count++) {
+		for (int count = 0; count < n - 1; count++) { // O(n)
 
 			// Pega o menor peso de aresta até algum vértice de fora da AGM
 			int u = pesoMin(peso, arvoreAGM);
@@ -82,14 +82,14 @@ public class Prim {
 			arvoreAGM[u] = true;
 
 			// Atualiza os valores considerando apenas os de fora da arvore
-			for (int v = 0; v < n; v++)
+			for (int v = 0; v < n; v++) // O(n)
 
 				// Verifica se u e v são adjacentes
 				// Se v não foi visitado
 				// e se o peso do analisado for menor a registrada
 				// no vetor de peso
 				// então atualiza os valores
-				if (Adj[u][v] != 0 && arvoreAGM[v] == false && Adj[u][v] < peso[v]) {
+				if (Adj[u][v] != 0 && arvoreAGM[v] == false && Adj[u][v] < peso[v]) { // O(n²)
 					pai[v] = u;
 					peso[v] = Adj[u][v];
 				}
@@ -101,14 +101,10 @@ public class Prim {
 
 	// Função para printar a AGM
 	void printAGM(int pai[], int Adj[][]) {
-		try {
-			System.out.println("Aresta \tPeso");
-			for (int i = 1; i < n; i++)
-				System.out.println(pai[i] + " - " + i + "\t"
-						+ Adj[i][pai[i]]);
-		} catch (Exception e) {
-			System.out.println(e);
-		}
+		System.out.println("Aresta \tPeso");
+		for (int i = 1; i < n; i++)
+			System.out.println(pai[i] + " - " + i + "\t"
+					+ Adj[i][pai[i]]);
 	}
 
 	// Função para encontrar o peso minimo a partir da tabela de pesos e dos

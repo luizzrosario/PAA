@@ -3,12 +3,15 @@ package Projeto;
 import java.io.FileWriter;
 import java.io.IOException;
 
-// Gerador de grafos de tamanho n
+// Gerador de grafos não direcionais ponderados de tamanho n
+// os valores serão de 0 a 100 
 
 public class Gerador {
     public static int n;
 
     public static void main(String[] args) throws IOException {
+        // É possivel gerar um arquivo apenas digitando o tamanho necessário
+        // Será guardado na pasta Grafos e chamado de Grafo(N).txt
         geraMatriz(5);
         geraMatriz(10);
         geraMatriz(20);
@@ -32,16 +35,16 @@ public class Gerador {
 
     public static int[][] generateAdjacencyMatrix(int n) {
         int[][] adjacencyMatrix = new int[n][n];
-        // Preenche a matriz de adjacência com valores aleatórios 
+        // Preenche a matriz de adjacência com valores aleatórios
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (i == j) {
                     // Não há conexão de um vértice para ele mesmo
-                    adjacencyMatrix[i][j] = 0; 
+                    adjacencyMatrix[i][j] = 0;
                 } else {
                     // Gera um valor aleatório de 1 a 100 e atribue aos espelhos
-                    adjacencyMatrix[i][j] = (int) (Math.random() * 100) + 1; 
-                    adjacencyMatrix[j][i] = adjacencyMatrix[i][j]; 
+                    adjacencyMatrix[i][j] = (int) (Math.random() * 100) + 1;
+                    adjacencyMatrix[j][i] = adjacencyMatrix[i][j];
                 }
             }
         }
