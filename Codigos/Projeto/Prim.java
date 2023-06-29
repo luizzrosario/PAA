@@ -73,7 +73,7 @@ public class Prim {
 		// O primeiro sempre vai ser a raiz. Ou seja, não tem pai (-1 está fora)
 		pai[0] = -1;
 
-		for (int count = 0; count < n - 1; count++) { // O(n)
+		for (int i = 0; i < n - 1; i++) { // O(n)
 
 			// Pega o menor peso de aresta até algum vértice de fora da AGM
 			int u = pesoMin(peso, arvoreAGM);
